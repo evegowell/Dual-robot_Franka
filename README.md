@@ -98,34 +98,23 @@ T(t) = T0 + k * max_i |dq_i(t)|
 즉, 속도 기반 적응 임계치 적용 가능.
 
 ## 📊 실험 설계
-비교군
-Baseline
+### 비교군
+### Baseline
+- 정적 계획
+- 충돌 시 단순 정지 또는 실패 처리
 
-정적 계획
+### Proposed
+- 충돌 감지
+- Back-off 수행
+- 재계획 후 작업 재개
 
-충돌 시 단순 정지 또는 실패 처리
-
-Proposed
-
-충돌 감지
-
-Back-off 수행
-
-재계획 후 작업 재개
-
-평가 지표
-
-작업 성공률 (%)
-
-평균 작업 완료 시간
-
-Ground truth 충돌 횟수
-
-재계획 횟수
-
-충돌 후 회복 성공률
-
-충돌 감지 Precision / Recall
+### 평가 지표
+- 작업 성공률 (%)
+- 평균 작업 완료 시간
+- Ground truth 충돌 횟수
+- 재계획 횟수
+- 충돌 후 회복 성공률
+- 충돌 감지 Precision / Recall
 
 ## 📁 프로젝트 구조
 
@@ -154,70 +143,40 @@ dual_franka_replan/
 
 ## 🧪 ML 적용 가능 영역 (선택 사항)
 ### 1️⃣ 토크 기반 충돌 분류기
-
-입력: 최근 0.2~0.5초 토크/속도 시계열
-
-출력: contact / no-contact
-
-모델: RandomForest / XGBoost / 1D-CNN
-
-라벨: contact ground truth 자동 생성
+- 입력: 최근 0.2~0.5초 토크/속도 시계열
+- 출력: contact / no-contact
+- 모델: RandomForest / XGBoost / 1D-CNN
+- 라벨: contact ground truth 자동 생성
 
 ### 2️⃣ Replan 트리거 최적화
-
-불필요한 재계획 감소
-
-오탐 줄이기
+- 불필요한 재계획 감소
+- 오탐 줄이기
 
 ## 🚀 개발 단계 체크리스트
 ### Step 1
-
-Franka 2대 스폰
-
-ROS2 joint_states 확인
-
+- Franka 2대 스폰
+- ROS2 joint_states 확인
 ### Step 2
-
-Franka 1대로 Pick-and-Place 성공
-
+- Franka 1대로 Pick-and-Place 성공
 ### Step 3
-
-두 로봇 동시 실행
-
-충돌 발생 상황 생성
-
+- 두 로봇 동시 실행
+- 충돌 발생 상황 생성
 ### Step 4
-
-토크 및 contact 로그 기록
-
+- 토크 및 contact 로그 기록
 ### Step 5
-
-토크 임계치 기반 Stop 구현
-
+- 토크 임계치 기반 Stop 구현
 ### Step 6
-
-Back-off 동작 추가
-
+- Back-off 동작 추가
 ### Step 7
-
-Replan + Resume 구현
-
+- Replan + Resume 구현
 ## 🖥 환경
-
-OS: Ubuntu 22.04
-
-ROS2: Humble
-
-Isaac Sim: 5.0.0
-
-GPU: RTX 2070 이상 권장
+- OS: Ubuntu 22.04
+- ROS2: Humble
+- Isaac Sim: 5.0.0
+- GPU: RTX 2070 이상 권장
 
 ## 📌 최종 목표
-
-Dual-arm shared workspace 시뮬레이션 환경 구축
-
-실행 중 충돌 감지 + 재계획 시스템 구현
-
-Baseline 대비 성능 개선 정량 검증
-
-재현 가능한 실험 환경 및 로그 제공
+- Dual-arm shared workspace 시뮬레이션 환경 구축
+- 실행 중 충돌 감지 + 재계획 시스템 구현
+- Baseline 대비 성능 개선 정량 검증
+- 재현 가능한 실험 환경 및 로그 제공
