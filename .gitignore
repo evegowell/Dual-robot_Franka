@@ -1,0 +1,51 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+.env
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================
+# Logs / Outputs
+# =========================
+logs/
+*.log
+*.csv
+*.npz
+*.bag
+*.bag.active
+
+# =========================
+# ROS2 / colcon
+# =========================
+build/
+install/
+log/
+
+# =========================
+# Large assets (optional)
+# =========================
+*.zip
+*.tar
+*.tar.gz
+*.7z
