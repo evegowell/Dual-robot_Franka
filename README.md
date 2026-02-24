@@ -49,16 +49,15 @@ Franka 로봇팔 2대를 동일 작업공간(shared workspace) 에 배치하여
 - 성공률 / 작업 시간 / 충돌 횟수 비교
 
 ## 🏗 시스템 구조
-
-Isaac Sim 5.0.0
-     
+```
+Isaac Sim 5.0.0    
       ↓ (ROS2 Bridge)
 ROS2 Humble 
-
       ├── MoveIt2 (Planning)
       ├── Torque Monitor Node
       ├── Recovery FSM Node
       └── Task Execution Node
+```
 ## 🤖 작업(Task) 설명
 ### Shared Workspace Dual Pick-and-Place
 
@@ -117,7 +116,7 @@ T(t) = T0 + k * max_i |dq_i(t)|
 - 충돌 감지 Precision / Recall
 
 ## 📁 프로젝트 구조
-
+```
 dual_franka_replan/
 │
 ├── README.md
@@ -140,7 +139,7 @@ dual_franka_replan/
 └── logs/
     ├── trial_0001.csv
     └── trial_0001_meta.json
-
+```
 ## 🧪 ML 적용 가능 영역 (선택 사항)
 ### 1️⃣ 토크 기반 충돌 분류기
 - 입력: 최근 0.2~0.5초 토크/속도 시계열
